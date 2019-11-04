@@ -20,8 +20,13 @@ var Juego = {
   obstaculosCarretera: [
     /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal
     de ejemplo, pero podras agregar muchos mas. */
-    new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1)
-
+    new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 100, 430, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 190, 480, 30, 30, 1 ),
+    new Obstaculo('imagenes/valla_vertical.png', 435, 390, 30, 30, 2),
+    new Obstaculo('imagenes/valla_vertical.png',435, 420, 30, 30, 2),
+    new Obstaculo('imagenes/bache.png', 300, 240, 40, 30, 5),
+    new Obstaculo('imagenes/auto_verde_derecha.png', 760, 240, 30, 30, 1)                                                
   ],
   /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
    Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
@@ -131,7 +136,7 @@ Juego.capturarMovimiento = function(tecla) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
 
-    /* COMPLETAR */
+    Jugador.moverse(movX, movY, tecla);
   }
 };
 
@@ -202,7 +207,7 @@ Juego.chequearColisiones = function(x, y) {
     if (this.intersecan(obstaculo, this.jugador, x, y)) {
 
       /*COMPLETAR, obstaculo debe chocar al jugador*/
-
+       
       puedeMoverse = false
     }
   }, this)
